@@ -1,0 +1,50 @@
+<%- include('../HOC/head.ejs') %>
+<div class="container bg-light">
+    <div class="row">
+        <div class="col-12">
+            <h2>Product Details page. </h2>
+            <p>Product ID: <b><%= product._id %></b></p>
+        </div>
+    </div>
+    <div class="row p-3">
+        <div class="col p-3">
+          <b>  Product name</b>
+        </div>
+        <div class="col p-3">
+            <%= product.name %>
+        </div>
+        <div class="col p-3">
+        <b>Category</b>
+        </div>
+        <div class="col p-3">
+            <%= product.category%>
+        </div>
+    </div>
+    <div class="row p-3">
+        <div class="col p-3">
+        <b>  Price</b>
+        </div>
+        <div class="col p-3">
+            $<%= product.price %>
+        </div>
+        <div class="col p-3"></div>
+        <div class="col p-3"></div>
+    </div>
+    <div class="row m-3">
+        <div class="col-6">
+                <a href="/products/<%= product._id%>/edit" class="btn btn-warning w-100">Edit</a>
+        </div>
+        <div class="col-6">
+            <form action="/products/<%= product._id %>?_method=DELETE" method="post">
+                <button class="btn btn-danger w-100">Delete</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row m-3">
+        <div class="col p-3">
+            <a href="/products" class="w-100 btn btn-success">back to the home page</a> 
+        </div>
+    </div>
+</div>
+<%- include('../HOC/foo.ejs') %>

@@ -1,0 +1,43 @@
+<%- include('../HOC/head.ejs') %>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>
+                Edit Product
+            </h2>
+        </div>
+    </div>
+    <form action="/products/<%= product._id %>?_method=PATCH" method="POST">
+        <div class="row">
+            <div class="col-12">
+                <label for="name">Product Name:</label>
+                <input type="text" name="name" value="<%= product.name %>" id="name" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <label for="price">Product price:</label>
+                <input type="number" name="price" value="<%= product.price %>" id="price" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <label for="category">Select Categroy</label>
+                <Select id="category" name="category" class="form-select">
+                    <option value="fruit"  <%= product.category === 'fruit' ? 'selected': '' %>>Fruits</option>
+                    <option value="vegetable" <%= product.category === 'vegetable' ? 'selected': '' %>>Vegetables</option>
+                    <option value="dairy" <%= product.category === 'dairy' ? 'selected': '' %>>Dairy product</option>
+                </Select>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                    <button class="btn btn-warning w-100">Update Product</button>
+            </div>
+            <div class="col">
+                <a href="/products" type="button" class="btn btn-outline-info w-100">Back to the products page</a>
+            </div>
+        </div>
+    </form>
+</div>
+<%- include('../HOC/foo.ejs') %>
